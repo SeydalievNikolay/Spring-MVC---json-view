@@ -1,4 +1,4 @@
-package unittest;
+package org.seydaliev.service;
 
 import lombok.experimental.ExtensionMethod;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +10,6 @@ import org.mockito.MockitoAnnotations;
 import org.seydaliev.exceptions.ResourceNotFoundException;
 import org.seydaliev.model.Users;
 import org.seydaliev.repository.UsersRepository;
-import org.seydaliev.service.UsersService;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 

@@ -4,12 +4,9 @@ import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
-import org.hibernate.validator.constraints.NotBlank;
 import org.seydaliev.service.Views;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -40,8 +37,9 @@ public class Order {
     private Users users;
 
     @ElementCollection
+    @Enumerated(EnumType.STRING)
     @CollectionTable(name="order_items", joinColumns=@JoinColumn(name="order_id"))
-    @AttributeOverride(name="quantity", column=@Column(name="item_quantity"))
+    @Column(name="item")
     @JsonView(Views.UserDetails.class)
-    private List<AbstractReadWriteAccess.Item> items;
+    private List<Item> items;
 }
